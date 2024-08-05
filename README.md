@@ -45,3 +45,7 @@ chmod +x typing_test.sh
 ```
 
 This example has 30 words instead of the default (which is 10)
+
+# Sources
+
+**Wordlist**: https://github.com/MichaelWehar/Public-Domain-Word-Lists/blob/master/5664-freq-treegle-may.txt
