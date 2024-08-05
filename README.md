@@ -9,11 +9,11 @@ git clone https://github.com/AndrewAMur/Terminal-Typing-Speed.git
 
 ```
 cd Terminal-Typing-Speed
-chmod +x script.sh
+chmod +x typing_test.sh
 ```
 
 # Running the script
 
 ```
-./script.sh
+./typing_test.sh
 ```
