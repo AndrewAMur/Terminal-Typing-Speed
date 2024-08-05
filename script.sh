@@ -50,4 +50,3 @@ correct_chars=$(comm -12 <(echo "$TEXT" | fold -w1) <(echo "$typed" | fold -w1) 
 accuracy=$(echo "scale=2; $correct_chars / ${#TEXT} * 100" | bc)
 
 echo -e "\n\nYour typing speed is: $wpm WPM"
-echo -e "Your accuracy is: $accuracy%"
