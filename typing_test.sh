@@ -79,18 +79,14 @@ run_typing_test() {
                 ((pos++))
             fi
 
-            tput sc
-            tput cup 4 0
+            clear
             echo -e "Type the following text as quickly and accurately as you can:\n"
             echo -e "\033[33m${sentence:0:$pos}\033[32m${sentence:$pos:1}\033[33m${sentence:$((pos + 1))}\033[0m"
-            tput cup 6 0
-            echo -e "\033[32m$typed\033[0m"
-            tput rc
+            echo -e "\n\033[32m$typed\033[0m"
 
             if [ "$SHOW_TIMER" != "0" ]; then
                 current_time=$(date +%s)
                 elapsed_time=$((current_time - typing_start_time))
-                tput cup 8 0
                 printf "Elapsed time: %02d:%02d" $((elapsed_time / 60)) $((elapsed_time % 60))
             fi
         fi
@@ -102,9 +98,11 @@ run_typing_test() {
     words=$(echo "$typed" | wc -w)
     wpm=$(echo "scale=2; $words / ($elapsed / 60)" | bc)
 
-    tput cup 10 0
+    clear
     echo -e "\nYour typing speed is: $wpm WPM"
+    echo -e "Elapsed time: $(echo "$elapsed" | awk '{printf "%.2f", $1}') seconds"
 }
 
 random_sentence=$(generate_random_sentence)
 run_typing_test "$random_sentence"
+
